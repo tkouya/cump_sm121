@@ -37,7 +37,7 @@ if test -z $CU ; then
 fi
 
 if test -z $CUFLAGS ; then
-  CUFLAGS="-arch=sm_90 $CXXFLAGS"
+  CUFLAGS="-arch=sm_121 $CXXFLAGS"
 fi
 
 AC_SUBST(CU)
