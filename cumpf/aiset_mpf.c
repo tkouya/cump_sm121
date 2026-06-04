@@ -25,6 +25,12 @@ along with the CUMP Library.  If not, see http://www.gnu.org/licenses/.  */
 #include "cump-impl.h"
 
 
+void  __cumpf_array_set_mpf
+( char  *rp, size_t  sLine, cump_size_t  prec
+, cump_size_t  *pSize, cump_exp_t  *pExp, mpf_srcptr  u
+);
+
+
 void  __cumpf_array_init_set_mpf
 ( char  *rp, size_t  sLine, cump_size_t  prec
 , cump_size_t  *pSize, cump_exp_t  *pExp, mpf_srcptr  s

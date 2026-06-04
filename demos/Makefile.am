@@ -18,15 +18,15 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with the CUMP Library.  If not, see http://www.gnu.org/licenses/.
 
-AM_CPPFLAGS = -I@CUDA_DIR@/include -I$(top_srcdir)
+AM_CPPFLAGS = -I@CUDA_DIR@/include -I$(top_srcdir) -I$(top_srcdir)/include
 
 if SPECIFY_GMP_DIR
   AM_CPPFLAGS += -I@GMP_DIR@
 endif
 
-AM_LDFLAGS = -lgmp -lcudart
+AM_LDFLAGS = -L@CUDA_DIR@/lib64
 
-LDADD = $(top_builddir)/libcump.a
+LDADD = $(top_builddir)/libcump.a -lgmp -lcudart
 
 CU = @CU@
 CUFLAGS = @CUFLAGS@ -cuda

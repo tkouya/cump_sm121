@@ -1,0 +1,33 @@
+# Build artifacts
+*.o
+*.a
+*.lo
+*.la
+.deps/
+.libs/
+
+# nvcc-generated intermediate sources
+cumpf/_ainit.cpp
+cumpf/_set.cpp.ii
+demos/axpy.cpp
+
+# Autotools generated files
+Makefile
+Makefile.in
+/aclocal.m4
+/autom4te.cache/
+/compile
+/config.guess
+/config.h
+/config.h.in
+/config.h.in~
+/config.log
+/config.status
+/config.sub
+/configure
+/configure~
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+/INSTALL

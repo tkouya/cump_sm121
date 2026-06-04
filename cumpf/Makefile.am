@@ -38,6 +38,9 @@ if USE_GMP
     aiset_mpf.$(OBJEXT) aset_mpf.$(OBJEXT)
 endif
 
+# Use deterministic archives; drop the obsolete 'u' modifier that GNU ar ignores.
+ARFLAGS = cr
+
 noinst_LIBRARIES = libcumpf.a
 libcumpf_a_SOURCES = \
   set_dfl_prec.c get_dfl_prec.c \

@@ -37,7 +37,7 @@ if test -z $CU ; then
 fi
 
 if test -z $CUFLAGS ; then
-  CUFLAGS="-arch=sm_20 $CXXFLAGS"
+  CUFLAGS="-arch=sm_90 $CXXFLAGS"
 fi
 
 AC_SUBST(CU)
@@ -48,7 +48,7 @@ AC_ARG_VAR(CUFLAGS, [CUDA compiler flags])
 
 # CUDA toolkit install directory.
 AC_ARG_WITH(cuda,
-  AC_HELP_STRING([--with-cuda[[=DIR]]],
+  AS_HELP_STRING([--with-cuda[[=DIR]]],
     [specify CUDA toolkit install directory [[default=/usr/local/cuda]]]),
   [CUDA_DIR="$withval"], [CUDA_DIR="/usr/local/cuda"])
 
@@ -56,7 +56,7 @@ AC_SUBST(CUDA_DIR)
 
 # GNU MP include file directory.
 AC_ARG_WITH(gmp,
-  AC_HELP_STRING([--with-gmp[[=DIR]]],
+  AS_HELP_STRING([--with-gmp[[=DIR]]],
     [use GNU MP (specify GNU MP include file directory) [[default=yes]]]),
   [case $withval in
 yes|no) ;;

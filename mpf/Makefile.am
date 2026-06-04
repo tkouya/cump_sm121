@@ -24,5 +24,8 @@ if SPECIFY_GMP_DIR
   AM_CPPFLAGS += -I@GMP_DIR@
 endif
 
+# Use deterministic archives; drop the obsolete 'u' modifier that GNU ar ignores.
+ARFLAGS = cr
+
 noinst_LIBRARIES = libmpf.a
 libmpf_a_SOURCES = aset_cumpf.c set_cumpf.c

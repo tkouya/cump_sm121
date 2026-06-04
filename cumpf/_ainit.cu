@@ -51,5 +51,5 @@ extern "C"  void  __cumpf_array_init (cumpf_array_ptr  r, cump_uint32  n, cump_s
   blocks.y = _n / (maxBlocksPerDim + 1u) + 1u;
   blocks.x = _n / blocks.y + 1u;
   cumpf_array_init_kernel <<<blocks, threads>>> (r, n, prec);
-  cudaThreadSynchronize ();
+  cudaDeviceSynchronize ();
 }  // __cumpf_array_init ()

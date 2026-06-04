@@ -23,6 +23,9 @@ SUBDIRS = cumpf demos include mpf
 include_HEADERS = cump.h
 lib_LIBRARIES = libcump.a
 
+# Use deterministic archives; drop the obsolete 'u' modifier that GNU ar ignores.
+ARFLAGS = cr
+
 AM_CPPFLAGS = -D__CUMP_WITHIN_CUMP -I@CUDA_DIR@/include
 
 if SPECIFY_GMP_DIR

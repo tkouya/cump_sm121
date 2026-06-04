@@ -47,13 +47,13 @@ void  mul_basecase
 
   do
     {
-      if (__all (vn<=5))
+      if (__all_sync (0xffffffff, vn<=5))
         {
-          if (__any (vn==5))
+          if (__any_sync (0xffffffff, vn==5))
             {
-              if (__any (vn==4))
+              if (__any_sync (0xffffffff, vn==4))
                 {
-                  if (__all (vn>=4))
+                  if (__all_sync (0xffffffff, vn>=4))
                     {
                       _first = 1;
                       _second = 4;
@@ -66,14 +66,14 @@ void  mul_basecase
                 }
             }
           else
-          if (__all (vn==4))  {_second = 4;}
+          if (__all_sync (0xffffffff, vn==4))  {_second = 4;}
           else
-          if (__any (vn==4))
+          if (__any_sync (0xffffffff, vn==4))
             {
-              if (__any (vn==3))
+              if (__any_sync (0xffffffff, vn==3))
                 {
                   _first = 1;
-                  if (__all (vn!=2))  {_second = 3;}
+                  if (__all_sync (0xffffffff, vn!=2))  {_second = 3;}
                   else
                     {
                       _second = 2;
@@ -83,9 +83,9 @@ void  mul_basecase
               else  {_second = 2;}
             }
           else
-          if (__any (vn==3))
+          if (__any_sync (0xffffffff, vn==3))
             {
-              if (__any (vn==2))
+              if (__any_sync (0xffffffff, vn==2))
                 {
                   _first = 1;
                   _second = 2;
@@ -96,16 +96,16 @@ void  mul_basecase
         break;
       }
 
-      while (__any (vn>9) && vn>=6)  {
+      while (__any_sync (0xffffffff, vn>9) && vn>=6)  {
         rp [un + 4 - 1] = addmul<4> (rp, up, un, vp);
         rp += 4, vp += 4, vn -= 4;
       }
 
-      if (__any (vn==9))
+      if (__any_sync (0xffffffff, vn==9))
         {
-          if (b = __all (vn==9 || vn==6 || vn==3))  {_first = 3;}
+          if (b = __all_sync (0xffffffff, vn==9 || vn==6 || vn==3))  {_first = 3;}
           else
-          if (__all (vn!=8))
+          if (__all_sync (0xffffffff, vn!=8))
             {
               if (vn<6 && vn!=4)  {break;}
               goto  __4;
@@ -119,25 +119,25 @@ void  mul_basecase
           goto  __1;
         }
       else
-      if (__all (vn==8))
+      if (__all_sync (0xffffffff, vn==8))
         {
           _second = 4;
           goto  __4;
         }
       else
-      if (__any (vn==8))
+      if (__any_sync (0xffffffff, vn==8))
         {
-          if (__all (vn!=7))
+          if (__all_sync (0xffffffff, vn!=7))
             {
-              if (__all (vn!=4))
+              if (__all_sync (0xffffffff, vn!=4))
                 {
                   if (vn<6)  {break;}
                   goto  __3;
                 }
-              if (__all (vn!=5 && vn!=3))
+              if (__all_sync (0xffffffff, vn!=5 && vn!=3))
                 {
                   _second = 4;
-                  if (__any (vn==6 || vn==2))
+                  if (__any_sync (0xffffffff, vn==6 || vn==2))
                     {
                       if (vn!=8)  {break;}
                       goto  __2;
@@ -145,7 +145,7 @@ void  mul_basecase
                   goto  __4;
                 }
             }
-          if (b = __all (vn!=6 && vn!=2))
+          if (b = __all_sync (0xffffffff, vn!=6 && vn!=2))
             {
               _first = 3;
               _second = 4;
@@ -159,11 +159,11 @@ void  mul_basecase
           goto  __2;
         }
       else
-      if (__any (vn==7))
+      if (__any_sync (0xffffffff, vn==7))
         {
-          if (__all (vn!=6))
+          if (__all_sync (0xffffffff, vn!=6))
             {
-              if (__all (vn!=5 && vn!=2))
+              if (__all_sync (0xffffffff, vn!=5 && vn!=2))
                 {
                   _first = 3;
                   _second = 4;
@@ -172,16 +172,16 @@ void  mul_basecase
               if (vn<4)  {break;}
               goto  __2;
             }
-          if (b = __all (vn!=5 && vn!=2))  {_first = 3;}
+          if (b = __all_sync (0xffffffff, vn!=5 && vn!=2))  {_first = 3;}
           else  {_second = 4;}
           if  (vn==7 || (b ? (vn==4) : (vn==5||vn==3)))  {goto  __1;}
           break;
         }
       else
-        {  // __any (vn==6)
-          if (__all (vn==6 || vn==3))  {_first = 3;}
+        {  // __any_sync (0xffffffff, vn==6)
+          if (__all_sync (0xffffffff, vn==6 || vn==3))  {_first = 3;}
           else
-          if (__all (vn!=5 && vn!=3))  {_second = 4;}
+          if (__all_sync (0xffffffff, vn!=5 && vn!=3))  {_second = 4;}
           else
           if (vn==6 || vn==4)  {goto  __1;}
           break;
