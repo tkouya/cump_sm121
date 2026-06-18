@@ -37,7 +37,14 @@ if test -z $CU ; then
 fi
 
 if test -z $CUFLAGS ; then
-  CUFLAGS="-arch=sm_121 $CXXFLAGS"
+  # Build for the GPU actually present: detect its compute capability via
+  # nvidia-smi (e.g. "9.0" -> sm_90).  Fall back to sm_121 (Blackwell/GB10)
+  # when nvidia-smi is unavailable.  Override by setting CUFLAGS on configure.
+  CUMP_GPU_CC=`nvidia-smi --query-gpu=compute_cap --format=csv,noheader 2>/dev/null | head -1 | tr -d '.'`
+  if test -z "$CUMP_GPU_CC" ; then
+    CUMP_GPU_CC=121
+  fi
+  CUFLAGS="-arch=sm_$CUMP_GPU_CC $CXXFLAGS"
 fi
 
 AC_SUBST(CU)
